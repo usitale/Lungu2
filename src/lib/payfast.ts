@@ -130,7 +130,7 @@ export async function validatePayFastITN(
   const expectedSignature = generatePayFastSignature({
     ...dataWithoutSig,
     passphrase,
-  });
+  } as PayFastParams);
 
   if (pfSignature !== expectedSignature) {
     console.error("[PayFast ITN] Signature mismatch");

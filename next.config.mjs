@@ -1,8 +1,6 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
-    // Allow external image domains for placeholder images
     remotePatterns: [
       {
         protocol: "https",
@@ -14,7 +12,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Environment variables exposed to the browser (non-secret)
   env: {
     NEXT_PUBLIC_PAYPAL_CLIENT_ID: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "",
     NEXT_PUBLIC_WHATSAPP_NUMBER: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",

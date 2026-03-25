@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Custom base styles ─────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-safari-cream text-gray-800 font-sans antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+}
+
+/* ── Utility classes ────────────────────────────────────── */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ── Hero video ─────────────────────────────────────────── */
+.hero-video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.hero-video-container video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.40) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+/* ── Scroll cue ─────────────────────────────────────────── */
+@keyframes scrollCue {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(8px); opacity: 0.5; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.scroll-cue {
+  animation: scrollCue 2s ease-in-out infinite;
+}
+
+/* ── Card hover ─────────────────────────────────────────── */
+.safari-card {
+  @apply bg-white rounded-2xl overflow-hidden shadow-card transition-all duration-300;
+}
+
+.safari-card:hover {
+  @apply shadow-card-hover -translate-y-1;
+}
+
+/* ── Section divider ────────────────────────────────────── */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #C9992C, #E8B84B);
+  border-radius: 2px;
+}
+
+/* ── Premium button ─────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 bg-safari-gold text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:bg-safari-sand hover:text-safari-brown-dark hover:shadow-premium focus:outline-none focus:ring-2 focus:ring-safari-gold focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 border-2 border-white text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:bg-white hover:text-safari-brown-dark focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent;
+}
+
+.btn-outline {
+  @apply inline-flex items-center gap-2 border-2 border-safari-gold text-safari-gold font-semibold px-6 py-3 rounded-full transition-all duration-200 hover:bg-safari-gold hover:text-white focus:outline-none focus:ring-2 focus:ring-safari-gold focus:ring-offset-2;
+}
+
+/* ── Chat widget ─────────────────────────────────────────── */
+.chat-widget-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+}
+
+/* ── Animations ─────────────────────────────────────────── */
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animate-fade-up-delay-1 {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.2s forwards;
+}
+
+.animate-fade-up-delay-2 {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.4s forwards;
+}
+
+.animate-fade-up-delay-3 {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out 0.6s forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Navbar ─────────────────────────────────────────────── */
+.navbar-scrolled {
+  background: rgba(74, 46, 26, 0.97) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Gallery grid ────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Star rating ─────────────────────────────────────────── */
+.star-filled { color: #C9992C; }
+.star-empty { color: #D1D5DB; }
+
+/* ── Form inputs ─────────────────────────────────────────── */
+.safari-input {
+  @apply w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-safari-gold focus:border-transparent transition-all bg-white;
+}
+
+.safari-label {
+  @apply block text-sm font-semibold text-gray-700 mb-1.5;
+}
+
+/* ── Loading spinner ─────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}

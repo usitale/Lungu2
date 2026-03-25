@@ -1,3 +1,5 @@
+"use client";
+
 const quickLinks = [
   { label: "Home", href: "#home" },
   { label: "About Us", href: "#about" },

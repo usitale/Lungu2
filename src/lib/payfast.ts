@@ -104,7 +104,7 @@ export function buildPayFastPaymentData(
     ...(booking.description && { item_description: booking.description }),
   };
 
-  const signature = generatePayFastSignature({ ...params, passphrase });
+  const signature = generatePayFastSignature({ ...params, passphrase } as PayFastParams);
   params.signature = signature;
 
   return { data: params, endpoint };
